@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JavaScript</title>
+	</head>
+	<body>
+		<button id="world">Click!</button>
+
+		<hr style="margin: 50px 0" />
+
+		<div>
+			<input id="number1" type="number" placeholder="Número 1" required />
+			<input id="number2" type="number" placeholder="Número 2" required />
+			<button id="sum">Somar</button>
+			<input id="result" type="number" placeholder="Resultado" disabled />
+		</div>
+
+		<hr style="margin: 50px 0" />
+
+		<button id="magic" style="margin-bottom: 10px">Mágica!</button>
+
+		<div>
+			<span id="abra">Abra</span>
+			<span name="ka">ka</span>
+			<span class="dabra">dabra</span>
+		</div>
+
+		<script>
+			// Olá mundo
+			document.getElementById("world").onclick = function () {
+				alert("Olá Mundo!");
+			};
+
+			// Soma
+			const number1 = document.getElementById("number1");
+			const number2 = document.getElementById("number2");
+			const result = document.getElementById("result");
+
+			document.getElementById("sum").onclick = function () {
+				const num1 = parseInt(number1.value);
+				const num2 = parseInt(number2.value);
+				result.value = num1 + num2;
+			};
+
+			// Alterar propriedades
+			const abra = document.getElementById("abra");
+			const ka = document.getElementsByName("ka")[0];
+			const dabra = document.getElementsByClassName("dabra")[0];
+
+			function randomColor() {
+				const letras = "0123456789ABCDEF";
+				let cor = "#";
+				for (let i = 0; i < 6; i++) {
+					cor += letras[Math.floor(Math.random() * 16)];
+				}
+				return cor;
+			}
+
+			document.getElementById("magic").onclick = function () {
+				abra.style.color = randomColor();
+				ka.style.color = randomColor();
+				dabra.style.color = randomColor();
+			};
+		</script>
+	</body>
+</html>
